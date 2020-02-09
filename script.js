@@ -55,6 +55,20 @@ function showMillionaires() {
 	updateDOM()
 }
 
+//  #20 reduce() for total
+function calculateWealth() {
+	const wealth = data.reduce((acc, user) => (acc += user.money), 0)
+
+	// console.log(formatMoney(wealth))
+
+	// #21 Create El to be posted to the DOM
+	const wealthEl = document.createElement('div')
+	wealthEl.innerHTML = `<h3>Total Wealth: <strong>${formatMoney(
+		wealth
+	)}</strong></h3>`
+	main.appendChild(wealthEl)
+}
+
 // #8 Function to Add new obj to data arr
 function addData(obj) {
 	data.push(obj)
@@ -97,3 +111,5 @@ doubleBtn.addEventListener('click', doubleMoney)
 sortBtn.addEventListener('click', sortByRichest)
 //  #17 Add EL for Filter()
 showMillionairesBtn.addEventListener('click', showMillionaires)
+//  #19 Add EL for reduce() used to add everything together ***returns a single value
+calculateWealthBtn.addEventListener('click', calculateWealth)
